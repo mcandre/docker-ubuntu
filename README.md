@@ -12,26 +12,26 @@ https://registry.hub.docker.com/u/mcandre/docker-ubuntu/
 
 ```
 $ make
-docker run --rm --privileged -v $(pwd):/mnt -t mcandre/docker-ubuntu:vivid sh -c 'apt-get update && apt-get install -y debootstrap && mkdir /chroot && debootstrap trusty /chroot && cd /chroot && tar czvf /mnt/rootfs.tar.gz .'
+docker run --rm --privileged -v $(pwd):/mnt -t mcandre/docker-ubuntu:trusty sh -c 'apt-get update && apt-get install -y debootstrap && mkdir /chroot && debootstrap raring /chroot && cd /chroot && tar czvf /mnt/rootfs.tar.gz .'
 ...
 
-docker build -t mcandre/docker-ubuntu:14.04 .
+docker build -t mcandre/docker-ubuntu:13.04 .
 Step 0 : FROM scratch
 Step 1 : MAINTAINER Andrew Pennebaker <andrew.pennebaker@gmail.com>
 Step 2 : ADD rootfs.tar.gz /
-Successfully built 74ad77160275
+Successfully built 688104c6f4ce
 
-docker run --rm mcandre/docker-ubuntu:14.04 sh -c 'cat /etc/*release*'
+docker run --rm mcandre/docker-ubuntu:13.04 sh -c 'cat /etc/*release*'
 DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=14.04
-DISTRIB_CODENAME=trusty
-DISTRIB_DESCRIPTION="Ubuntu 14.04 LTS"
+DISTRIB_RELEASE=13.04
+DISTRIB_CODENAME=raring
+DISTRIB_DESCRIPTION="Ubuntu 13.04"
 NAME="Ubuntu"
-VERSION="14.04, Trusty Tahr"
+VERSION="13.04, Raring Ringtail"
 ID=ubuntu
 ID_LIKE=debian
-PRETTY_NAME="Ubuntu 14.04 LTS"
-VERSION_ID="14.04"
+PRETTY_NAME="Ubuntu 13.04"
+VERSION_ID="13.04"
 HOME_URL="http://www.ubuntu.com/"
 SUPPORT_URL="http://help.ubuntu.com/"
 BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
