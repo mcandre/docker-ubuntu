@@ -12,26 +12,26 @@ https://registry.hub.docker.com/u/mcandre/docker-ubuntu/
 
 ```
 $ make
-docker run --rm --privileged -v $(pwd):/mnt -t mcandre/docker-ubuntu:trusty sh -c 'apt-get update && apt-get install -y debootstrap && mkdir /chroot && debootstrap raring /chroot && cd /chroot && tar czvf /mnt/rootfs.tar.gz .'
+docker run --rm --privileged -v $(pwd):/mnt -t mcandre/docker-ubuntu:trusty sh -c 'apt-get update && apt-get install -y debootstrap && mkdir /chroot && debootstrap saucy /chroot http://old-releases.ubuntu.com/ubuntu/ && cd /chroot && tar czvf /mnt/rootfs.tar.gz .'
 ...
 
-docker build -t mcandre/docker-ubuntu:13.04 .
+docker build -t mcandre/docker-ubuntu:13.10 .
 Step 0 : FROM scratch
 Step 1 : MAINTAINER Andrew Pennebaker <andrew.pennebaker@gmail.com>
 Step 2 : ADD rootfs.tar.gz /
-Successfully built 688104c6f4ce
+Successfully built b0a8346a4feb
 
-docker run --rm mcandre/docker-ubuntu:13.04 sh -c 'cat /etc/*release*'
+docker run --rm mcandre/docker-ubuntu:13.10 sh -c 'cat /etc/*release*'
 DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=13.04
-DISTRIB_CODENAME=raring
-DISTRIB_DESCRIPTION="Ubuntu 13.04"
+DISTRIB_RELEASE=13.10
+DISTRIB_CODENAME=saucy
+DISTRIB_DESCRIPTION="Ubuntu 13.10"
 NAME="Ubuntu"
-VERSION="13.04, Raring Ringtail"
+VERSION="13.10, Saucy Salamander"
 ID=ubuntu
 ID_LIKE=debian
-PRETTY_NAME="Ubuntu 13.04"
-VERSION_ID="13.04"
+PRETTY_NAME="Ubuntu 13.10"
+VERSION_ID="13.10"
 HOME_URL="http://www.ubuntu.com/"
 SUPPORT_URL="http://help.ubuntu.com/"
 BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
