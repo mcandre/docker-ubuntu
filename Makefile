@@ -1,4 +1,4 @@
-IMAGE=mcandre/docker-ubuntu:latest
+IMAGE=mcandre/docker-ubuntu:15.04
 ROOTFS=rootfs.tar.gz
 define GENERATE
 apt-get update && \
