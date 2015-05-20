@@ -1,10 +1,10 @@
-IMAGE=mcandre/docker-ubuntu:11.04
+IMAGE=mcandre/docker-ubuntu:10.10
 ROOTFS=rootfs.tar.gz
 define GENERATE
 apt-get update && \
 apt-get install -y debootstrap && \
 mkdir /chroot && \
-debootstrap natty /chroot http://old-releases.ubuntu.com/ubuntu/ && \
+debootstrap maverick /chroot http://old-releases.ubuntu.com/ubuntu/ && \
 cd /chroot && \
 tar czvf /mnt/rootfs.tar.gz .
 endef
