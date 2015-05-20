@@ -1,10 +1,10 @@
-IMAGE=mcandre/docker-ubuntu:12.10
+IMAGE=mcandre/docker-ubuntu:11.10
 ROOTFS=rootfs.tar.gz
 define GENERATE
 apt-get update && \
 apt-get install -y debootstrap && \
 mkdir /chroot && \
-debootstrap quantal /chroot http://old-releases.ubuntu.com/ubuntu/ && \
+debootstrap oneiric /chroot http://old-releases.ubuntu.com/ubuntu/ && \
 cd /chroot && \
 tar czvf /mnt/rootfs.tar.gz .
 endef
@@ -12,7 +12,7 @@ endef
 all: run
 
 $(ROOTFS):
-	docker run --rm --privileged -v $$(pwd):/mnt -t mcandre/docker-ubuntu:trusty sh -c '$(GENERATE)'
+	docker run --rm --privileged -v $$(pwd):/mnt -t mcandre/docker-ubuntu:precise sh -c '$(GENERATE)'
 
 build: Dockerfile $(ROOTFS)
 	docker build -t $(IMAGE) .
