@@ -1,10 +1,10 @@
-IMAGE=mcandre/docker-ubuntu:5.10
+IMAGE=mcandre/docker-ubuntu:5.04
 ROOTFS=rootfs.tar.gz
 define GENERATE
 apt-get update && \
 apt-get install -y debootstrap && \
 mkdir /chroot && \
-debootstrap breezy /chroot http://old-releases.ubuntu.com/ubuntu/ && \
+debootstrap hoary /chroot http://old-releases.ubuntu.com/ubuntu/ && \
 cd /chroot && \
 tar czvf /mnt/rootfs.tar.gz .
 endef
