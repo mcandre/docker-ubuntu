@@ -1,10 +1,10 @@
-IMAGE=mcandre/docker-ubuntu:6.10
+IMAGE=mcandre/docker-ubuntu:6.06
 ROOTFS=rootfs.tar.gz
 define GENERATE
 apt-get update && \
 apt-get install -y debootstrap && \
 mkdir /chroot && \
-debootstrap edgy /chroot http://old-releases.ubuntu.com/ubuntu/ && \
+debootstrap dapper /chroot http://old-releases.ubuntu.com/ubuntu/ && \
 cd /chroot && \
 tar czvf /mnt/rootfs.tar.gz .
 endef

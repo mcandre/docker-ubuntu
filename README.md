@@ -12,20 +12,20 @@ https://registry.hub.docker.com/u/mcandre/docker-ubuntu/
 
 ```
 $ make
-docker run --rm --privileged -v $(pwd):/mnt -t mcandre/docker-ubuntu:hardy sh -c 'apt-get update && apt-get install -y debootstrap && mkdir /chroot && debootstrap edgy /chroot http://old-releases.ubuntu.com/ubuntu/ && cd /chroot && tar czvf /mnt/rootfs.tar.gz .'
+docker run --rm --privileged -v $(pwd):/mnt -t mcandre/docker-ubuntu:hardy sh -c 'apt-get update && apt-get install -y debootstrap && mkdir /chroot && debootstrap dapper /chroot http://old-releases.ubuntu.com/ubuntu/ && cd /chroot && tar czvf /mnt/rootfs.tar.gz .'
 ...
 
-docker build -t mcandre/docker-ubuntu:6.10 .
+docker build -t mcandre/docker-ubuntu:6.06 .
 Step 0 : FROM scratch
 Step 1 : MAINTAINER Andrew Pennebaker <andrew.pennebaker@gmail.com>
 Step 2 : ADD rootfs.tar.gz /
-Successfully built fc3415ce1a6d
+Successfully built 7a28db95f634
 
-docker run --rm mcandre/docker-ubuntu:6.10 sh -c 'cat /etc/*release*'
+docker run --rm mcandre/docker-ubuntu:6.06 sh -c 'cat /etc/*release*'
 DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=6.10
-DISTRIB_CODENAME=edgy
-DISTRIB_DESCRIPTION="Ubuntu 6.10"
+DISTRIB_RELEASE=6.06
+DISTRIB_CODENAME=dapper
+DISTRIB_DESCRIPTION="Ubuntu 6.06 LTS"
 ```
 
 # REQUIREMENTS
