@@ -12,20 +12,20 @@ https://registry.hub.docker.com/u/mcandre/docker-ubuntu/
 
 ```
 $ make
-docker run --rm --privileged -v $(pwd):/mnt -t mcandre/docker-ubuntu:lucid sh -c 'apt-get update && apt-get install -y debootstrap && mkdir /chroot && debootstrap karmic /chroot http://old-releases.ubuntu.com/ubuntu/ && cd /chroot && tar czvf /mnt/rootfs.tar.gz .'
+docker run --rm --privileged -v $(pwd):/mnt -t mcandre/docker-ubuntu:lucid sh -c 'apt-get update && apt-get install -y debootstrap && mkdir /chroot && debootstrap jaunty /chroot http://old-releases.ubuntu.com/ubuntu/ && cd /chroot && tar czvf /mnt/rootfs.tar.gz .'
 ...
 
-docker build -t mcandre/docker-ubuntu:9.10 .
+docker build -t mcandre/docker-ubuntu:9.04 .
 Step 0 : FROM scratch
 Step 1 : MAINTAINER Andrew Pennebaker <andrew.pennebaker@gmail.com>
 Step 2 : ADD rootfs.tar.gz /
-Successfully built e1ff744d3b1d
+Successfully built 957ddac4c2c1
 
-docker run --rm mcandre/docker-ubuntu:9.10 sh -c 'cat /etc/*release*'
+docker run --rm mcandre/docker-ubuntu:9.04 sh -c 'cat /etc/*release*'
 DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=9.10
-DISTRIB_CODENAME=karmic
-DISTRIB_DESCRIPTION="Ubuntu 9.10"
+DISTRIB_RELEASE=9.04
+DISTRIB_CODENAME=jaunty
+DISTRIB_DESCRIPTION="Ubuntu 9.04"
 ```
 
 # REQUIREMENTS
