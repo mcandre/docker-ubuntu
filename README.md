@@ -12,20 +12,20 @@ https://registry.hub.docker.com/u/mcandre/docker-ubuntu/
 
 ```
 $ make
-docker run --rm --privileged -v $(pwd):/mnt -t mcandre/docker-ubuntu:hardy sh -c 'apt-get update && apt-get install -y debootstrap && mkdir /chroot && debootstrap gutsy /chroot http://old-releases.ubuntu.com/ubuntu/ && cd /chroot && tar czvf /mnt/rootfs.tar.gz .'
+docker run --rm --privileged -v $(pwd):/mnt -t mcandre/docker-ubuntu:hardy sh -c 'apt-get update && apt-get install -y debootstrap && mkdir /chroot && debootstrap feisty /chroot http://old-releases.ubuntu.com/ubuntu/ && cd /chroot && tar czvf /mnt/rootfs.tar.gz .'
 ...
 
-docker build -t mcandre/docker-ubuntu:7.10 .
+docker build -t mcandre/docker-ubuntu:7.04 .
 Step 0 : FROM scratch
 Step 1 : MAINTAINER Andrew Pennebaker <andrew.pennebaker@gmail.com>
 Step 2 : ADD rootfs.tar.gz /
-Successfully built 8d12f11e3420
+Successfully built 4f88f122af03
 
-docker run --rm mcandre/docker-ubuntu:7.10 sh -c 'cat /etc/*release*'
+docker run --rm mcandre/docker-ubuntu:7.04 sh -c 'cat /etc/*release*'
 DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=7.10
-DISTRIB_CODENAME=gutsy
-DISTRIB_DESCRIPTION="Ubuntu 7.10"
+DISTRIB_RELEASE=7.04
+DISTRIB_CODENAME=feisty
+DISTRIB_DESCRIPTION="Ubuntu 7.04"
 ```
 
 # REQUIREMENTS
