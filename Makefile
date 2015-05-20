@@ -1,10 +1,10 @@
-IMAGE=mcandre/docker-ubuntu:13.04
+IMAGE=mcandre/docker-ubuntu:12.10
 ROOTFS=rootfs.tar.gz
 define GENERATE
 apt-get update && \
 apt-get install -y debootstrap && \
 mkdir /chroot && \
-debootstrap raring /chroot http://old-releases.ubuntu.com/ubuntu/ && \
+debootstrap quantal /chroot http://old-releases.ubuntu.com/ubuntu/ && \
 cd /chroot && \
 tar czvf /mnt/rootfs.tar.gz .
 endef
