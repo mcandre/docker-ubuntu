@@ -44,6 +44,7 @@ BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
 ## Optional
 
 * [make](http://www.gnu.org/software/make/)
+* [Node.js](https://nodejs.org/en/)
 
 ## Debian/Ubuntu
 
