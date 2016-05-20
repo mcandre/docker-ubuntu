@@ -1,10 +1,10 @@
-IMAGE=mcandre/docker-ubuntu:latest
+IMAGE=mcandre/docker-ubuntu:16.10
 ROOTFS=rootfs.tar.gz
 define GENERATE
 apt-get update && \
 apt-get install -y debootstrap && \
 mkdir /chroot && \
-debootstrap vivid /chroot && \
+debootstrap yakkety /chroot && \
 cd /chroot && \
 tar czvf /mnt/rootfs.tar.gz .
 endef
@@ -12,7 +12,7 @@ endef
 all: run
 
 $(ROOTFS):
-	docker run --rm --privileged -v $$(pwd):/mnt -t ubuntu:15.04 sh -c '$(GENERATE)'
+	docker run --rm --privileged -v $$(pwd):/mnt -t ubuntu:16.04 sh -c '$(GENERATE)'
 
 build: Dockerfile $(ROOTFS)
 	docker build -t $(IMAGE) .
